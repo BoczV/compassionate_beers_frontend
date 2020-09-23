@@ -10,25 +10,23 @@ function BeerCard({ beer }) {
           <div
             className="top"
             style={{
-              background: `url(https://images.punkapi.com/v2/keg.png)`,
+              background: `url(${beer.image_url})`,
               backgroundSize: "200px 420px",
               backgroundPosition: "center center",
             }}
           >
             <div className="wrapper">
               <p className="heading">{beer.name}</p>
-              <img src={`${beer.image_url}`} alt="" width="14" height="auto" />
-              <ul className="forecast">
-                <li className="active">
-                  <span className="date">Brewed: {beer.first_brewed}</span>
-                </li>
-                <li className="active">
-                  <span className="date">{beer.tagline}</span>
-                </li>
-                <li className="active">
-                  <span className="date">Alcohol ratio: {beer.abv}%</span>
-                </li>
-              </ul>
+              <div className="pushtobottom">
+                <ul className="forecast">
+                  <li className="active">
+                    <span className="date">Brewed: {beer.first_brewed}</span>
+                  </li>
+                  <li className="active">
+                    <span className="date">Alcohol ratio: {beer.abv}%</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </Link>
