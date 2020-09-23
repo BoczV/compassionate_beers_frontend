@@ -8,10 +8,17 @@ function Login() {
   const [isLoggedIn, setIsLoggedIn] = useState(LoggedInContext);
 
   const sendUserLoginData = () => {
-    Axios.post("", {
+    Axios.post("http://localhost:8080/", {
       username: username,
       password: password,
-    });
+    })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+        alert("Incorrect username and/or password!");
+      });
   };
 
   return <div></div>;
