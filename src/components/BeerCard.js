@@ -10,8 +10,8 @@ function BeerCard({ beer }) {
           <div
             className="top"
             style={{
-              background: `url(${beer.image_url})`,
-              backgroundSize: "200px 420px",
+              backgroundImage: `url(${beer.image_url})`,
+              backgroundSize: "160px 420px",
               backgroundPosition: "center center",
             }}
           >

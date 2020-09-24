@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import BeerCard from "./BeerCard";
+import "../style/Input.css";
 
 function HomePage() {
   const [page, setPage] = useState(1);
@@ -118,9 +119,10 @@ function HomePage() {
       <div>
         <input
           type="text"
-          placeholder="Beer name"
+          placeholder="Beer"
           onChange={(e) => setBeerName(e.target.value)}
         />
+
         <input
           type="text"
           placeholder="Food"

@@ -9,11 +9,19 @@ function RandomBeer() {
     const url = `http://localhost:8762/beerservice/beer/random`;
 
     Axios.get(url).then((data) => {
-      setRandomBeer(data.data);
+      setRandomBeer(data.data[0]);
     });
   }, []);
   return (
-    <div>
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(250px, max-content))",
+        justifyContent: "center",
+        gridGap: "2rem",
+        marginTop: "5%",
+      }}
+    >
       <BeerCard beer={randomBeer} />
     </div>
   );

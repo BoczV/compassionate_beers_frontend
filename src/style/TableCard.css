@@ -20,8 +20,7 @@ body {
   width: 250px;
   overflow: hidden;
   /* background: url("https://pixabay.com/get/55e0dd474854ad14f6da8c7dda7936791736dee556556c48702678d2904bc65ebe_1280.jpg"); */
-  background-size: cover;
-  background-position: center center;
+
   text-align: center;
 }
 .weather-card .top .wrapper {
@@ -157,39 +156,4 @@ body {
     no-repeat;
   background-size: cover;
   background-position: center center;
-}
-
-.hello:hover {
-  letter-spacing: 0.8em;
-  background-color: #f08c99;
-}
-
-.hello {
-  color: white;
-}
-button {
-  height: 3rem;
-  width: 12rem;
-  padding: 1.5rem auto;
-  margin: 1rem auto;
-  background-color: #feb1c0;
-  border: none;
-  border-radius: 3px;
-  text-transform: uppercase;
-  letter-spacing: 0.5em;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.buttons {
-  display: flex;
-  justify-content: space-between;
-}
-
-.date {
-  color: white;
-}
-
-.pushtobottom {
-  position: absolute;
-  bottom: 20%;
 }
