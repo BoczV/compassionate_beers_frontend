@@ -9,12 +9,16 @@ export default function MyProfile() {
 
   const { beerId } = useParams();
   const [detailedBeer, setDetailedBeer] = useState({});
+  const [hops, setHops] = useState([]);
+  const [malts, setMalts] = useState([]);
 
   useEffect(() => {
     const url = `http://localhost:8762/beerservice/beer/${beerId}`;
     axios.get(url).then((data) => {
       console.log(data.data);
       setDetailedBeer(data.data);
+      setHops(data.data.hops);
+      setMalts(data.data.malts);
     });
   }, [beerId]);
 
@@ -22,19 +26,76 @@ export default function MyProfile() {
     <div className="body-container">
       <aside class="profile-card">
         <header>
-          <a href="#">
+          <a href="/">
             <img src={`${detailedBeer.img_url}`} />
           </a>
 
-          <h1>"username"</h1>
+          <h1>{detailedBeer.name}</h1>
 
-          <h2>"email"</h2>
+          <h2>{detailedBeer.tagline}</h2>
+
+          <h3>{detailedBeer.description}</h3>
         </header>
 
         <div class="profile-bio">
-          <p>
-            Under construction... <br /> Please come back later!
-          </p>
+          <div class="profile-bio-element">
+            <p class="list-first-column">Yeast:</p>
+            <p class="list-second-column">{detailedBeer.yeast}</p>
+          </div>
+          <div class="profile-bio-element">
+            <p class="list-first-column">First brewed:</p>
+            <p class="list-second-column">{detailedBeer.first_brewed}</p>
+          </div>
+          <div class="profile-bio-element">
+            <p class="list-first-column">Alcohol ratio:</p>
+            <p class="list-second-column">{detailedBeer.alcohol_ratio}</p>
+          </div>
+          <h2 class="hops">HOPS</h2>
+          <div class="profile-bio-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Amount</th>
+                  <th>Unit</th>
+                  <th>Add</th>
+                  <th>Attribute</th>
+                </tr>
+              </thead>
+              <tbody>
+                {hops.map((hop) => (
+                  <tr>
+                    <td>{hop.name}</td>
+                    <td>{hop.amount}</td>
+                    <td>{hop.unit}</td>
+                    <td>{hop.add}</td>
+                    <td>{hop.attribute}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <h2 class="hops">MALTS</h2>
+          <div class="profile-bio-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Amount</th>
+                  <th>Unit</th>
+                </tr>
+              </thead>
+              <tbody>
+                {malts.map((malt) => (
+                  <tr>
+                    <td>{malt.name}</td>
+                    <td>{malt.amount}</td>
+                    <td>{malt.unit}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </aside>
     </div>

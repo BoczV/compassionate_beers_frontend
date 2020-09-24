@@ -3,7 +3,7 @@
 @import url("https://cdn.linearicons.com/free/1.0.0/icon-font.min.css");
 body {
   font-family: "Montserrat", sans-serif;
-  /* background-image: url("https://wallup.net/wp-content/uploads/2016/01/64339-fantasy_art-sky.jpg"); */
+  background-image: url("https://thumbs.dreamstime.com/b/beer-texture-foam-close-up-as-background-46019051.jpg");
 }
 
 .weather-card {
@@ -25,10 +25,22 @@ body {
   text-align: center;
 }
 .weather-card .top .wrapper {
-  padding: 30px;
   position: relative;
   z-index: 1;
+  height: 100%;
+  margin-top: 20%;
+  text-align: center;
 }
+
+.weather-card .top .wrapper .pushtobottom .forecast {
+  display: inline-flex;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
 .weather-card .top .wrapper .mynav {
   height: 20px;
 }
@@ -47,8 +59,16 @@ body {
 .weather-card .top .wrapper .heading {
   margin-top: 20px;
   font-size: 35px;
-  font-weight: 400;
+  font-weight: 700;
   color: #fff;
+  -webkit-text-fill-color: rgb(
+    248,
+    239,
+    201
+  ); /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+  text-align: center;
 }
 .weather-card .top .wrapper .location {
   margin-top: 20px;
@@ -94,15 +114,8 @@ body {
   padding: 0 30px;
   background: #fff;
 }
-.weather-card .bottom .wrapper .forecast {
-  overflow: hidden;
-  margin: 0;
-  font-size: 0;
-  padding: 0;
-  padding-top: 20px;
-  max-height: 235px;
-}
-.weather-card .bottom .wrapper .forecast a {
+
+.weather-card .bottom .wrapper .pushtobottom .forecast a {
   text-decoration: none;
   color: #000;
 }
@@ -112,8 +125,7 @@ body {
   font-size: 25px;
   margin-bottom: 10px;
 }
-.weather-card .bottom .wrapper .forecast li {
-  display: block;
+.weather-card .bottom .wrapper .pushtobottom .forecast li {
   font-size: 25px;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.25);
@@ -175,4 +187,9 @@ button {
 
 .date {
   color: white;
+}
+
+.pushtobottom {
+  position: absolute;
+  bottom: 20%;
 }
