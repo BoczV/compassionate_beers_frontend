@@ -10,12 +10,17 @@ function Profile() {
     const url = `http://localhost:8762/profile/${localStorage.getItem(
       "username"
     )}`;
+    const url2 = `http://localhost:8762/favorites/get-beers/${localStorage.getItem(
+      "username"
+    )}`;
     Axios.get(url).then((data) => {
       console.log(data.data);
       setUser(data.data);
-      if (data.data.beerIds) {
-        setBeers(data.data.beerIds);
-      }
+    });
+    Axios.get(url2).then((data) => {
+      console.log(data.data).catch((e) => {
+        console.log(e);
+      });
     });
   }, []);
 

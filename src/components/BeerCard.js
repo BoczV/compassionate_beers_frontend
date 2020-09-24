@@ -1,8 +1,23 @@
+import Axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
 import "../style/TableCard.css";
 
 function BeerCard({ beer }) {
+  const addAsFavorite = () => {
+    const url = `http://localhost:8762/favorites/save`;
+    Axios.post(url, {
+      alcohol: beer.abv,
+      name: beer.name,
+      id: beer.id,
+      brewedDate: beer.first_brewed,
+      img: beer.image_url,
+      username: localStorage.getItem("username"),
+    }).catch((e) => {
+      console.log(e);
+    });
+  };
+
   return (
     <div>
       <div className="weather-card one">
@@ -32,7 +47,9 @@ function BeerCard({ beer }) {
         </Link>
         <div className="bottom">
           <div className="wrapper">
-            <button className="hello">+ Add as favorite</button>
+            <button className="hello" onClick={() => addAsFavorite()}>
+              + Add as favorite
+            </button>
           </div>
         </div>
       </div>
