@@ -24,6 +24,10 @@ export default function NavBar() {
     localStorage.removeItem("roles");
   }
 
+  useEffect(() => {
+    setIsLoggedIn(cookieValue);
+  }, [cookieValue, setIsLoggedIn]);
+
   return (
     <div className="header">
       <p className="home" href="/" id="logo">
@@ -38,6 +42,11 @@ export default function NavBar() {
           <li>
             <a href="/random">Random beer</a>
           </li>
+          {isLoggedIn ? (
+            <li>
+              <a href="/profile">My profile</a>
+            </li>
+          ) : null}
           {isLoggedIn ? (
             <li>
               <Link onClick={() => logout()} to={"/"}>
