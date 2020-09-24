@@ -122,7 +122,6 @@ function HomePage() {
           placeholder="Beer"
           onChange={(e) => setBeerName(e.target.value)}
         />
-
         <input
           type="text"
           placeholder="Food"

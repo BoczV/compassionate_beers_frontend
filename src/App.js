@@ -6,6 +6,7 @@ import HomePage from "./components/HomePage";
 import RandomBeer from "./components/RandomBeer";
 import DetailedBeer from "./components/DetailedBeer";
 import LoginOrRegister from "./components/LoginOrRegister";
+import Profile from "./components/Profile";
 function App() {
   return (
     <div className="App">
@@ -15,6 +16,7 @@ function App() {
         <Route exact path="/random" component={RandomBeer} />
         <Route exact path="/beer/:beerId" component={DetailedBeer} />
         <Route exact path="/login-register" component={LoginOrRegister} />
+        <Route exact path="/profile" component={Profile} />
       </Router>
     </div>
   );

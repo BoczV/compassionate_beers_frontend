@@ -10,7 +10,7 @@ function Login(props) {
   const [isLoggedIn, setIsLoggedIn] = useContext(LoggedInContext);
 
   const sendUserLoginData = () => {
-    Axios.post("http://localhost:8080/auth/sign-in", {
+    Axios.post("http://localhost:8762/userservice/auth/sign-in", {
       username: username,
       password: password,
     })
