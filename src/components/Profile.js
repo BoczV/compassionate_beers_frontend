@@ -18,9 +18,8 @@ function Profile() {
       setUser(data.data);
     });
     Axios.get(url2).then((data) => {
-      console.log(data.data).catch((e) => {
-        console.log(e);
-      });
+      console.log(data.data);
+      setBeers(data.data);
     });
   }, []);
 
