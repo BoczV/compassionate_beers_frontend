@@ -11,6 +11,7 @@ export default function MyProfile() {
   const [detailedBeer, setDetailedBeer] = useState({});
   const [hops, setHops] = useState([]);
   const [malts, setMalts] = useState([]);
+  const [foods, setFoods] = useState([]);
 
   useEffect(() => {
     const url = `http://localhost:8762/beerservice/beer/${beerId}`;
@@ -19,6 +20,7 @@ export default function MyProfile() {
       setDetailedBeer(data.data);
       setHops(data.data.hops);
       setMalts(data.data.malts);
+      setFoods(data.data.foodPairing);
     });
   }, [beerId]);
 
@@ -49,6 +51,14 @@ export default function MyProfile() {
           <div class="profile-bio-element">
             <p class="list-first-column">Alcohol ratio:</p>
             <p class="list-second-column">{detailedBeer.alcohol_ratio}</p>
+          </div>
+          <div class="profile-bio-element">
+            <p class="list-first-column">Food pairing:</p>
+
+            <p class="list-second-column">{foods[0]}</p>
+            {foods.slice(1, foods.size).map((food) => (
+              <p class="list-second-column2">{food}</p>
+            ))}
           </div>
           <h2 class="hops">HOPS</h2>
           <div class="profile-bio-table">

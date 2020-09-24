@@ -612,6 +612,12 @@ p {
   text-align: left;
 }
 
+.list-second-column2 {
+  display: inline-flex;
+  text-align: left;
+  margin-left: 30%;
+}
+
 .profile-bio-element {
   color: #751d02;
   display: block;
