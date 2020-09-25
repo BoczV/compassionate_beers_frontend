@@ -3,11 +3,13 @@ import Axios from "axios";
 import { LoggedInContext } from "../context/LoggedInContext";
 import { Link, Redirect } from "react-router-dom";
 import "../style/Login.scss";
+import { useCookies } from "react-cookie";
 
 function Login(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useContext(LoggedInContext);
+  const [cookies, setCookie] = useCookies(["auth"]);
 
   const sendUserLoginData = () => {
     Axios.post("http://localhost:8762/auth/sign-in", {
@@ -15,8 +17,9 @@ function Login(props) {
       password: password,
     })
       .then((data) => {
-        removeCookies();
-        document.cookie = `Authorization=${data.data.token}`;
+        /*removeCookies();
+        document.cookie = `Authorization=${data.data.token}`;*/
+        setCookie("auth", data.data.token);
         localStorage.clear();
         window.localStorage.setItem("username", username);
         window.localStorage.setItem("roles", data.data.roles);

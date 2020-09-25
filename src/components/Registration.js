@@ -3,6 +3,7 @@ import Axios from "axios";
 import { LoggedInContext } from "../context/LoggedInContext";
 import { Link } from "react-router-dom";
 import "../style/Login.scss";
+import { useCookies } from "react-cookie";
 
 function Registration(props) {
   const [userName, setUserName] = useState("");
@@ -10,6 +11,7 @@ function Registration(props) {
   const [firstPassword, setFirstPassword] = useState("");
   const [secondPassword, setSecondPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useContext(LoggedInContext);
+  const [cookies, setCookie] = useCookies(["auth"]);
 
   const sendNewUserData = () => {
     if (firstPassword !== secondPassword) {
@@ -21,8 +23,9 @@ function Registration(props) {
         password: firstPassword,
       })
         .then((data) => {
-          removeCookies();
-          document.cookie = `Authorization=${data.data.token}`;
+          /*removeCookies();
+          document.cookie = `Authorization=${data.data.token}`;*/
+          setCookie("auth", data.data.token, { path: "/" });
           localStorage.clear();
           window.localStorage.setItem("username", userName);
           window.localStorage.setItem("roles", data.data.roles);

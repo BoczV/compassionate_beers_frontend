@@ -2,17 +2,29 @@ import Axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
 import "../style/TableCard.css";
+/*Axios.defaults.headers.common["Authorization"] = `${
+  document.cookie.split("=")[1]
+}`;*/
+import { useCookies } from "react-cookie";
 
 function BeerCard({ beer }) {
+  const [cookies, setCookie, removeCookie] = useCookies();
+
   const addAsFavorite = () => {
     const url = `http://localhost:8762/favorites/save`;
-    Axios.post(url, {
-      alcohol: beer.abv,
-      name: beer.name,
-      id: beer.id,
-      brewedDate: beer.first_brewed,
-      img: beer.image_url,
-      username: localStorage.getItem("username"),
+    console.log(`Bearer ${cookies["auth"]}`);
+    Axios({
+      method: "post",
+      url: url,
+      headers: { Authorization: `Bearer ${cookies["auth"]}` },
+      data: {
+        alcohol: beer.abv,
+        name: beer.name,
+        id: beer.id,
+        brewedDate: beer.first_brewed,
+        img: beer.image_url,
+        username: localStorage.getItem("username"),
+      },
     }).catch((e) => {
       console.log(e);
     });
