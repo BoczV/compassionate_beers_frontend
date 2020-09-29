@@ -11,5 +11,18 @@ Don't you know, which beer would be a good match for your pizza? Don't worry! Ju
 
 In our application, you can register yourself as a fan of BrewDog, pick your favorite beers and save it on your personal profile. You can delete them, if you would change your mind.
 
+!!!! Backend github link: https://github.com/BoczV/compassionate_beers_backend !!!!
+
 ![alt text](https://github.com/BoczV/compassionate_beers_frontend/blob/master/./public/beerLibrary.png?raw=true)
 ![alt text](https://github.com/BoczV/compassionate_beers_frontend/blob/master/./public/beerLibrary2.png?raw=true)
+
+
+## Technologies
+
+### Frontend
+Mainly we used React on frontend side along with CSS.
+Our authentication strategy is based on JWT tokens, which were saved on the client side dynamically to fulfill security. 
+
+### Backend
+We used Spring Boot framework to create our backend side with Hibernate. Our backend has a micro-service based architecture with multiple services.
+You can find more information in the backend git link: https://github.com/BoczV/compassionate_beers_backend
