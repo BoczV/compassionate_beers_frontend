@@ -35,7 +35,7 @@ export default function NavBar() {
   return (
     <div className="header">
       <p className="home" href="/" id="logo">
-        Beers
+        BrewDog Beer Library
       </p>
 
       <nav>
